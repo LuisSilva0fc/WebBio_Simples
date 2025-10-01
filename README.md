@@ -8,6 +8,14 @@ O código é fácil de adaptar para outros perfis e pode ser utilizado como base
 
 ---
 
+## 🌐 Disponibilidade do site funcional/Exemplo
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/061eb133-4975-4d2e-a02f-6da031463316/deploy-status)](https://app.netlify.com/projects/luis-silva/deploys)
+
+Acesse: https://luis-silva.netlify.app/
+
+---
+
 ## ✨ Descrição do estilo
 
 - Efeito de digitação animado com frases personalizadas;
@@ -27,14 +35,6 @@ O código é fácil de adaptar para outros perfis e pode ser utilizado como base
 - <b>JavaScript</b> puro (sem frameworks);
 - Ícones: <a href="https://lucide.dev/" target="_blank">Lucide Icons</a>;
 - Fontes: <a href="https://fonts.google.com/specimen/Inter" target="_blank">Inter</a>;
-
----
-
-## 🌐 Disponibilidade do site funcional/Exemplo
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/061eb133-4975-4d2e-a02f-6da031463316/deploy-status)](https://app.netlify.com/projects/luis-silva/deploys)
-
-Acesse: https://luis-silva.netlify.app/
 
 ---
 
