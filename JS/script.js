@@ -45,7 +45,7 @@ function typeEffect() {
 
     if (!isDeleting && charIndex === currentText.length) {
         isDeleting = true;
-        typingSpeed = 2000;
+        typingSpeed = 2000; // Pausa antes de deletar
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         typingIndex = (typingIndex + 1) % typingTexts.length;
@@ -59,16 +59,105 @@ function openSocialLink(platform) {
     const url = socialLinks[platform];
 
     if (url && url.trim() !== "") {
-        // Usar redirecionamento seguro
-        location.href = url;
+        window.open(url, "_blank");
+
+        // Adicionar efeito visual de clique
+        if (window.event) {
+            const button = window.event.target.closest('.social-button');
+            if (button) {
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                }, 150);
+            }
+        }
     } else {
         showNotification(`Link do ${platform} ainda não configurado!`, 'warning');
     }
 }
 
-// Função de notificação simplificada
+// Sistema de notificações
 function showNotification(message, type = 'info') {
-    console.log(`${type}: ${message}`);
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+
+    // Estilos inline para a notificação
+    Object.assign(notification.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        padding: '12px 20px',
+        borderRadius: '8px',
+        color: 'white',
+        fontWeight: '500',
+        zIndex: '9999',
+        transform: 'translateX(400px)',
+        transition: 'transform 0.3s ease',
+        maxWidth: '300px'
+    });
+
+    // Cores baseadas no tipo
+    const colors = {
+        info: '#3b82f6',
+        success: '#10b981',
+        warning: '#f59e0b',
+        error: '#ef4444'
+    };
+
+    notification.style.backgroundColor = colors[type] || colors.info;
+
+    document.body.appendChild(notification);
+
+    // Animação de entrada
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 10);
+
+    // Remover após 3 segundos
+    setTimeout(() => {
+        notification.style.transform = 'translateX(400px)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}
+
+// Cursor personalizado que segue o mouse
+function createCustomCursor() {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+
+    Object.assign(cursor.style, {
+        position: 'fixed',
+        width: '20px',
+        height: '20px',
+        borderRadius: '50%',
+        background: 'linear-gradient(45deg, #3b82f6, #8b5cf6)',
+        pointerEvents: 'none',
+        zIndex: '9999',
+        opacity: '0',
+        transition: 'opacity 0.3s ease, transform 0.1s ease',
+        transform: 'translate(-50%, -50%)'
+    });
+
+    document.body.appendChild(cursor);
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursor.style.opacity = '0.6';
+    });
+
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '0.6';
+    });
+
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+    });
 }
 
 // Partículas flutuantes de fundo
@@ -114,6 +203,7 @@ function toggleTheme() {
     const isDark = document.body.classList.contains('dark-theme');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 
+    // Atualizar ícone
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         const icon = themeToggle.querySelector('i');
@@ -124,6 +214,7 @@ function toggleTheme() {
             }
         }
 
+        // Efeito de rotação
         themeToggle.style.transform = 'rotate(360deg)';
         setTimeout(() => {
             themeToggle.style.transform = '';
@@ -135,6 +226,7 @@ function toggleTheme() {
 
 // Inicialização quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', function() {
+    // Carregar tema salvo
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-theme');
@@ -152,18 +244,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 
+    // Configurar botão de tema
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
 
+    // Iniciar efeito de digitação
     setTimeout(typeEffect, 1000);
 
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.style.opacity = '1';
-    });
+    // Criar recursos visuais
+    createCustomCursor();
+    createParticles();
+    initVisitorCounter();
 
+    // Efeitos nos botões sociais
     const socialButtons = document.querySelectorAll('.social-button');
     socialButtons.forEach(button => {
         button.addEventListener('mouseenter', function() {
@@ -174,6 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1) translateY(0)';
         });
 
+        // Efeito de clique
         button.addEventListener('click', function() {
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
@@ -181,4 +277,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 150);
         });
     });
+
+// Atalhos de teclado
+document.addEventListener('keydown', function(e) {
+    // Ctrl/Cmd + D para alternar tema
+    if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+        e.preventDefault();
+        toggleTheme();
+    }
+
+    // ESC para fechar notificações
+    if (e.key === 'Escape') {
+        const notifications = document.querySelectorAll('.notification');
+        notifications.forEach(notification => {
+            notification.style.transform = 'translateX(400px)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        });
+    }
 });
