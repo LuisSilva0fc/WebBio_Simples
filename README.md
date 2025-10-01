@@ -49,7 +49,7 @@ Acesse: https://luis-silva.netlify.app/
 
 - **Frases do efeito de digitação:** Edite o array `typingTexts` em `JS/script.js`;
 - **Links das redes sociais:** Atualize o objeto `socialLinks` em `JS/script.js`;
-- **Imagem de perfil:** Substitua `Imagens/luis_silva.jpeg` pela sua foto;
+- **Imagem de perfil:** Substitua `Imagens/perfil-ft.jpeg` pela sua foto;
 - **Cores e estilos:** Edite `CSS/styles.css` para alterar temas, gradientes e animações;
 
 ---
