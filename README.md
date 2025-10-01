@@ -30,7 +30,7 @@ O código é fácil de adaptar para outros perfis e pode ser utilizado como base
 
 ---
 
-## 🌐 Disponibilidade do site funncional e Exemplo
+## 🌐 Disponibilidade do site funcional/Exemplo
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/061eb133-4975-4d2e-a02f-6da031463316/deploy-status)](https://app.netlify.com/projects/luis-silva/deploys)
 
