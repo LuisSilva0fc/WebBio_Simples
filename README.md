@@ -2,7 +2,7 @@
 
 Essa <b>Web Bio</b> é uma página estática criada para apresentar de forma elegante e dinâmica o perfil, nome, descrição breve e redes sociais. Por ser uma web bio estática, não depende de backend ou banco de dados: basta hospedar os arquivos em qualquer serviço de hospedagem estática (como GitHub Pages, Vercel, Netlify, etc) e compartilhar seu link.
 
-Projeto foi desenvolvido no ituito de concluir uma atividade da diciplina: Programação WEB - Front-End, prof. Tales Augusto
+Projeto foi desenvolvido no intuito de concluir uma atividade da diciplina: **Programação WEB - Front-End, prof. Tales Augusto**
 
 O código é fácil de adaptar para outros perfis e pode ser utilizado como base para portfólios pessoais, páginas "bio link" ou landing pages profissionais.
 
