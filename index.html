@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Silva - Portfólio</title>
+    <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <button id="theme-toggle" title="Alternar tema" style="position: absolute; top: 24px; right: 32px; z-index: 999; background: none; border: none; cursor: pointer;">
+        <i data-lucide="moon"></i>
+    </button>
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="profile-image">
+                    <img src=".\Imagens\luis_silva.jpeg" alt="Luis Silva" class="profile-img">
+                </div>
+
+                <h2 class="hero-title">Luis Silva</h2>
+                <p class="hero-subtitle">
+                    <span class="typing-text">Estudante de ADS</span>
+                </p>
+                <p class="hero-description">
+                    Sou Luis Fernando, paraibano e estudante de ADS. Gosto de ajudar, sou reservado e já participei de projetos como o AgroFertilizer ESG, atuando no desenvolvimento da interface e site na Wix.
+                </p>
+            </section>
+
+            <!-- Sobre Section -->
+            <section class="about-section">
+                <div class="card">
+                    <div class="card-header">
+                        <i data-lucide="code"></i>
+                        <h3>Sobre Mim</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="about-grid">
+                            <div class="about-item">
+                                <h4>Formação</h4>
+                                <p>
+                                    Ensino Médio e Técnico em Agronegócio pela ECIT Monsenhor Odilon Alves Pedrosa. Atualmente, curso Análise e Desenvolvimento de Sistemas na UEPB.
+                                </p>
+                            </div>
+                            <div class="about-item">
+                                <h4>Objetivos</h4>
+                                <p>
+                                    Busco oportunidades para aplicar conhecimentos teóricos em projetos práticos, 
+                                    contribuir para soluções inovadoras e crescer profissionalmente na área de tecnologia.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Links Section -->
+            <section class="social-section">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="social-title">Minhas Redes Sociais</h3>
+                        <div class="social-grid">
+                            <button class="social-button facebook" onclick="openSocialLink('facebook')">
+                                <i data-lucide="facebook"></i>
+                                <span>Facebook</span>
+                            </button>
+
+                            <button class="social-button instagram" onclick="openSocialLink('instagram')">
+                                <i data-lucide="instagram"></i>
+                                <span>Instagram</span>
+                            </button>
+
+                            <button class="social-button telegram" onclick="openSocialLink('telegram')">
+                                <i data-lucide="send"></i>
+                                <span>Telegram</span>
+                            </button>
+
+                            <button class="social-button threads" onclick="openSocialLink('threads')">
+                                <i data-lucide="at-sign"></i>
+                                <span>Threads</span>
+                            </button>
+
+                            <button class="social-button spotify" onclick="openSocialLink('spotify')">
+                                <i data-lucide="music"></i>
+                                <span>Spotify</span>
+                            </button>
+
+                            <button class="social-button youtube" onclick="openSocialLink('youtube')">
+                                <i data-lucide="play"></i>
+                                <span>YouTube</span>
+                            </button>
+
+                            <button class="social-button steam" onclick="openSocialLink('steam')">
+                                <i data-lucide="gamepad-2"></i>
+                                <span>Steam</span>
+                            </button>
+
+                            <button class="social-button website" onclick="openSocialLink('web')">
+                                <i data-lucide="globe"></i>
+                                <span>Website</span>
+                            </button>
+                        </div>
+                        <p class="social-note">* Não me pergunte o porquê... XD </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Luis Silva. Todos os direitos reservados.</p>
+            <p class="footer-subtitle">Site em construção • Versão 0.1.25</p>
+            <a href="mailto:luis.fernando.bento.silva@via.tokyo.jp" class="footer-email">luis.fernando.bento.silva@via.tokyo.jp</a>
+        </div>
+    </footer>
+
+    <script src="./JS/script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
