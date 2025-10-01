@@ -258,6 +258,28 @@ document.addEventListener('DOMContentLoaded', function() {
     createParticles();
     initVisitorCounter();
 
+    // Animações de entrada para as seções
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 0.8s ease-out';
+                entry.target.style.opacity = '1';
+            }
+        });
+    }, observerOptions);
+
+    // Observar seções (Animação de inicio)
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        observer.observe(section);
+    });
+
     // Efeitos nos botões sociais
     const socialButtons = document.querySelectorAll('.social-button');
     socialButtons.forEach(button => {
@@ -277,6 +299,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 150);
         });
     });
+
+    // Mensagem de boas-vindas
+    setTimeout(() => {
+        showNotification('Bem-vindo ao meu Site! 🌐', 'success');
+    }, 2000);
+
+    console.log("Site do Luis Silva carregado com funcionalidades avançadas!");
+});
 
 // Atalhos de teclado
 document.addEventListener('keydown', function(e) {
