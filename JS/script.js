@@ -125,41 +125,6 @@ function showNotification(message, type = 'info') {
     }, 3000);
 }
 
-// Cursor personalizado que segue o mouse
-function createCustomCursor() {
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-
-    Object.assign(cursor.style, {
-        position: 'fixed',
-        width: '20px',
-        height: '20px',
-        borderRadius: '50%',
-        background: 'linear-gradient(45deg, #3b82f6, #8b5cf6)',
-        pointerEvents: 'none',
-        zIndex: '9999',
-        opacity: '0',
-        transition: 'opacity 0.3s ease, transform 0.1s ease',
-        transform: 'translate(-50%, -50%)'
-    });
-
-    document.body.appendChild(cursor);
-
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        cursor.style.opacity = '0.6';
-    });
-
-    document.addEventListener('mouseenter', () => {
-        cursor.style.opacity = '0.6';
-    });
-
-    document.addEventListener('mouseleave', () => {
-        cursor.style.opacity = '0';
-    });
-}
-
 // Partículas flutuantes de fundo
 function createParticles() {
     const particlesContainer = document.createElement('div');
@@ -254,7 +219,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(typeEffect, 1000);
 
     // Criar recursos visuais
-    createCustomCursor();
     createParticles();
     initVisitorCounter();
 
