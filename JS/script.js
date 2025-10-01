@@ -329,36 +329,3 @@ document.addEventListener('keydown', function(e) {
         });
     }
 });
-
-// Adicionar CSS para animações via JavaScript
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(180deg); }
-    }
-
-    .typing-text::after {
-        content: '|';
-        animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-        0%, 50% { opacity: 1; }
-        51%, 100% { opacity: 0; }
-    }
-
-    .custom-cursor {
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-    }
-
-    .visitor-counter {
-        backdrop-filter: blur(10px);
-        transition: transform 0.3s ease;
-    }
-
-    .visitor-counter:hover {
-        transform: scale(1.05);
-    }
-`;
-document.head.appendChild(style);
