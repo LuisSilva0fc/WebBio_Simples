@@ -56,7 +56,7 @@ Acesse: https://luis-silva.netlify.app/
 
 ## 📄 Licença
 
-Este projeto é MIT e pode ser utilizado para fins pessoais e de aprendizado. Sinta-se livre para modificar e compartilhar!
+Este projeto é [MIT](https://github.com/LuisSilva0fc/WebBio_Simples/blob/main/README.md) e pode ser utilizado para fins pessoais e de aprendizado. Sinta-se livre para modificar e compartilhar!
 
 ---
 
